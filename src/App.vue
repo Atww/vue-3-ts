@@ -1,18 +1,24 @@
 <template>
-  <div>
-    <Nav />
-  </div>
-  <router-view />
+  <component :is="layout">
+    <router-view />
+  </component>
 </template>
+
 <script lang="ts">
-import { defineComponent } from "vue";
-import Nav from "@/components/Screen/Navigation.vue"; // @ is an alias to /src
+import { defineComponent, ref, computed } from "vue";
+import { useRouter } from "vue-router";
+
+const defaultLayout = "default";
 
 export default defineComponent({
-  components: {
-    Nav
+  setup() {
+    const { currentRoute } = useRouter();
+    const layout = computed(
+      () => `${currentRoute.value.meta.layout || defaultLayout}-layout`
+    );
+    return {
+      layout
+    };
   }
 });
 </script>
-
-<style></style>
