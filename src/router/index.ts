@@ -8,7 +8,8 @@ import Login from "@/views/Login.vue";
 import Modal from "@/views/Modal.vue";
 import Card from "@/views/Card.vue";
 import Blank from "@/views/Blank.vue";
-// import NotFound from "./views/NotFound.vue";
+import Post from "@/views/Post.vue";
+import IndexNovel from "@/views/​Novel/Index.vue";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -16,6 +17,12 @@ const routes: RouteRecordRaw[] = [
     name: "Login",
     component: Login,
     meta: { layout: "empty" }
+  },
+  {
+    path: "/novel",
+    name: "Novel",
+    meta: { layout: "novel" },
+    component: IndexNovel
   },
   {
     path: "/dashboard",
@@ -51,6 +58,11 @@ const routes: RouteRecordRaw[] = [
     path: "/blank",
     name: "Blank",
     component: Blank
+  },
+  {
+    path: "/post",
+    name: "Post",
+    component: Post
   }
 ];
 
